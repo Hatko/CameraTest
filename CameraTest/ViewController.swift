@@ -10,11 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     fileprivate let photoPickerController = UIImagePickerController()
-
-
-    @IBAction func cancelBtnTapped(_ sender: UIButton) {
-        dismiss(animated: true)
-    }
     
     @IBAction func showCamera(_ sender: Any) {
         photoPickerController.sourceType = .camera
@@ -29,7 +24,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         guard let storyboard = storyboard else {return}
         
-        let viewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
+        let viewController = storyboard.instantiateViewController(withIdentifier: "EditingViewController")
         
         picker.present(viewController, animated: true)
     }
